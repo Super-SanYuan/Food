@@ -399,7 +399,6 @@
       // 3. 动画结束，显示中奖结果，中奖结果如何显示，视实际情况而定
       setTimeout(() => {
         this.isGoing = false;
-        alert(`炫了它-->【${this.typeMap[res.type]}】`)
         console.log('中奖结果：', randomRate, res, this.typeMap[res.type]);
       }, rotateSpeed * 1000);
     }
