@@ -1,616 +1,614 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8"/>
-    <title>爱的魔力转圈圈</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
-      html, body {
-        height: 100%;
-      }
-      ul {
-        list-style: none;
-      }
+<head>
+  <meta charset="utf-8"/>
+  <title>爱的魔力转圈圈</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      height: 100%;
+    }
+    ul {
+      list-style: none;
+    }
 
-      @keyframes white-to-yellow {
-        0% {
-          background: #fff;
-        }
-        100% {
-          background: #d7a945;
-        }
-      }
-      @keyframes heartbeat {
-        0% {
-          transform: scale(1);
-        }
-        25% {
-          transform: scale(0.8);
-        }
-        50% {
-          transform: scale(1.2);
-        }
-        75% {
-          transform: scale(0.9);
-        }
-        100% {
-          transform: scale(1);
-        }
-      }
-
-      .turntable-wrap {
-        position: relative;
-        overflow: hidden;
-        margin: 50% auto;
-        transform: translateY(-50%);
-        width: 840px;
-        height: 840px;
-        border: 7px solid #b2a98d;
-        border-radius: 50%;
-        box-shadow: 0 0 20px #b2a98d;
-      }
-      .turntable-wrap .light {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #e0ddd1;
-        animation: rotate 5s linear infinite;
-      }
-      .turntable-wrap .light span {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        width: 10px;
-        height: 100%;
-        border-radius: 50%;
-        transform-origin: center center;
-      }
-      .turntable-wrap .light span:before {
-        content: '';
-        position: absolute;
-        top: 5px;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-      }
-      .turntable-wrap .light span:nth-of-type(even):before {
+    @keyframes white-to-yellow {
+      0% {
         background: #fff;
-        animation: white-to-yellow 1s linear infinite;
       }
-      .turntable-wrap .light span:nth-of-type(odd):before {
+      100% {
         background: #d7a945;
-        animation: white-to-yellow 1s linear reverse infinite;
+      }
+    }
+    @keyframes heartbeat {
+      0% {
+        transform: scale(1);
+      }
+      25% {
+        transform: scale(0.8);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      75% {
+        transform: scale(0.9);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .turntable-wrap {
+      position: relative;
+      overflow: hidden;
+      margin: 50% auto;
+      transform: translateY(-50%);
+      width: 750px;
+      height: 750px;
+      border: 7px solid #b2a98d;
+      border-radius: 50%;
+      box-shadow: 0 0 20px #b2a98d;
+    }
+    .turntable-wrap .light {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #e0ddd1;
+      animation: rotate 5s linear infinite;
+    }
+    .turntable-wrap .light span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 10px;
+      height: 100%;
+      border-radius: 50%;
+      transform-origin: center center;
+    }
+    .turntable-wrap .light span:before {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .turntable-wrap .light span:nth-of-type(even):before {
+      background: #fff;
+      animation: white-to-yellow 1s linear infinite;
+    }
+    .turntable-wrap .light span:nth-of-type(odd):before {
+      background: #d7a945;
+      animation: white-to-yellow 1s linear reverse infinite;
+    }
+
+    .turntable-wrap .turntable {
+      position: absolute;
+      margin: 20px;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: #fff;
+    }
+    .turntable-wrap .turntable .bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      border: 1px solid #dfd8be;
+      border-radius: 50%;
+      transform: rotate(90deg);
+    }
+    .turntable-wrap .turntable .bg li {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 1px;
+      height: 100%;
+      background: #dfd8be;
+      transform-origin: center center;
+    }
+
+    .turntable-wrap .turntable .gift {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform: rotate(45deg);
+    }
+    .turntable-wrap .turntable .gift li {
+      position: absolute;
+      top: -5%;
+      left: -5%;
+      width: 55%;
+      height: 55%;
+      transform-origin: right bottom;
+    }
+    .turntable-wrap .turntable .gift li span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
+      width: 30px;
+      height: 105px;
+      margin: auto;
+      background: yellow;
+      transform: rotate(-45deg);
+      text-align: center;
+      line-height: 30px;
+      border-radius: 5px;
+      background: #f23c3c;
+      color: #fff;
+      font-size: 16px;
+      -webkit-writing-mode: vertical-lr;
+      -ms-writing-mode: lr-tb;
+      writing-mode: vertical-lr;
+    }
+    .turntable-wrap .turntable .gift li:not(.no-gift) span:before {
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: #fff;
+    }
+    .turntable-wrap .turntable .gift li.no-gift span {
+      background: #fff;
+      line-height: 70px;
+      color: #bfa74f;
+      font-size: 12px;
+    }
+
+    .turntable-wrap .pointer {
+      box-sizing: border-box;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      margin: -23px auto;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #fff;
+      border: 5px solid #fff;
+      box-shadow: 0 0 0 5px #b9a046;
+      text-align: center;
+      line-height: 16px;
+      color: #b9a046;
+      font-size: 44px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .turntable-wrap .pointer:before {
+      content: '';
+      position: absolute;
+      top: -248px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 0;
+      border-style: solid;
+      border-color: transparent transparent #b9a046 transparent;
+      border-width: 25px 10px 215px 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="turntable-wrap">
+  <div class="light" id="turntable_light"></div>
+  <div class="turntable" id="turntable">
+    <ul class="bg" id="turntable_bg"></ul>
+    <ul class="gift" id="turntable_gift"></ul>
+  </div>
+  <div class="pointer disabled" id="turntable_pointer">食</div>
+</div>
+
+<script>
+  // 单例模式，转盘唯一，用对象字面量方式表示
+  let turntable = {
+    itemNum: 38, // 转盘平均分几块
+
+    lightNum: 38, // 转盘上的灯
+    light: null, // 转盘旋转灯容器
+
+    turntable: null, // 转盘
+
+    bg: null, // 转盘背景
+
+    gift: null, // 转盘上的中奖结果图
+
+    pointer: null, // 转盘指针
+
+    lottery: [], // 中奖数据
+
+    typeMap: {
+      "1": "馄饨",
+      "2": "饺子",
+      "3": "螺蛳粉",
+      "4": "泡面",
+      "5": "盖浇饭",
+      "6": "麻辣烫",
+      "7": "重庆小面",
+      "8": "炸鸡",
+      "9": "寿司",
+      "10": "粥",
+      "11": "意面",
+      "12": "面包",
+      "13": "酸辣粉",
+      "14": "花甲粉",
+      "15": "烤肉",
+      "16": "汉堡",
+      "17": "炸串",
+      "18": "咖喱饭",
+      "19": "三明治",
+      "20": "蛙蛙",
+      "21": "披萨",
+      "23": "煎饼",
+      "24": "火锅",
+      "25": "串串",
+      "26": "干锅",
+      "27": "酸菜鱼",
+      "28": "冒菜",
+      "29": "关东煮",
+      "30": "鲜芋仙",
+      "31": "车仔面",
+      "32": "千层蛋糕",
+      "33": "五谷鱼粉",
+      "34": "泡菜",
+      "35": "黄焖鸡",
+      "36": "鸡公煲",
+      "37": "冒烤鸭",
+      "38": "不吃"
+    },
+    typeClassMap: {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "",
+      "7": "",
+      "8": "",
+      "9": "",
+      "10": "",
+      "11": "",
+      "12": "",
+      "13": "",
+      "14": "",
+      "15": "",
+      "16": "",
+      "17": "",
+      "18": "",
+      "19": "",
+      "20": "",
+      "21": "",
+      "23": "",
+      "24": "",
+      "25": "",
+      "26": "",
+      "27": "",
+      "28": "",
+      "29": "",
+      "30": "",
+      "31": "",
+      "32": "",
+      "33": "",
+      "34": "",
+      "35": "",
+      "36": "",
+      "37": "",
+      "38": ""
+    },
+
+    isGoing: false, // 游戏是否开始
+
+    init () {
+      if (!this.lottery.length) {
+        this.pointer.style.display = 'none';
+        throw new Error('请设置中奖结果数据');
       }
 
-      .turntable-wrap .turntable {
-        position: absolute;
-        margin: 20px;
-        width: 800px;
-        height: 800px;
-        border-radius: 50%;
-        background: #fff;
+      // 初始化灯
+      let lightFragment = document.createDocumentFragment();
+      for (let i = 0; i < this.lightNum; i++) {
+        let lightItem = document.createElement('span');
+        let deg = (360 / this.lightNum) * i
+        lightItem.style.transform = `rotate(${deg}deg)`;
+        lightFragment.appendChild(lightItem);
       }
-      .turntable-wrap .turntable .bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #fff;
-        border: 1px solid #dfd8be;
-        border-radius: 50%;
-        transform: rotate(90deg);
+      this.light.appendChild(lightFragment);
+
+      // 初始化转盘背景、转盘上的中奖图（用不同背景色代替）
+      let bgFragment = document.createDocumentFragment();
+      let bgItemWidth = this.bg.offsetWidth / this.num;
+      let giftFragment = document.createDocumentFragment();
+      for (let i = 0; i < this.itemNum; i++) {
+        let bgItem = document.createElement('li');
+        let deg = (360 / this.itemNum) * i
+        bgItem.style.transform = `rotate(${deg}deg)`;
+        bgFragment.appendChild(bgItem);
+
+        let giftItem = document.createElement('li');
+        giftItem.style.transform = `rotate(${deg}deg)`;
+        giftItem.className = this.typeClassMap[this.lottery[i].type];
+        let span = document.createElement('span');
+        span.innerHTML = this.typeMap[this.lottery[i].type];
+        giftItem.appendChild(span);
+        giftFragment.appendChild(giftItem)
       }
-      .turntable-wrap .turntable .bg li {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        width: 1px;
-        height: 100%;
-        background: #dfd8be;
-        transform-origin: center center;
+      this.bg.appendChild(bgFragment);
+      this.gift.appendChild(giftFragment);
+
+      // 给点击抽奖按钮添加点击事件
+      this.pointer.onclick = this.gameStart.bind(this)
+    },
+
+    gameStart () {
+      if (this.isGoing) {
+        return
       }
+      this.isGoing = true;
 
-      .turntable-wrap .turntable .gift {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        transform: rotate(45deg);
-      }
-      .turntable-wrap .turntable .gift li {
-        position: absolute;
-        top: -10%;
-        left: -10%;
-        width: 60%;
-        height: 60%;
-        transform-origin: right bottom;
-      }
-      .turntable-wrap .turntable .gift li span {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        display: block;
-        width: 50px;
-        height: 90px;
-        margin: auto;
-        background: yellow;
-        transform: rotate(-45deg);
-        text-align: center;
-        line-height: 40px;
-        border-radius: 5px;
-        background: #f23c3c;
-        color: #fff;
-        font-size: 18px;
-        text-align: center;
-        color: #fff;
-        -webkit-writing-mode: vertical-lr;
-        -ms-writing-mode: lr-tb;
-        writing-mode: vertical-lr;
-      }
-      .turntable-wrap .turntable .gift li:not(.no-gift) span:before {
-        content: '';
-        position: absolute;
-        top: 15px;
-        left: 0;
-        width: 50px;
-        height: 1px;
-        background: #fff;
-      }
-      .turntable-wrap .turntable .gift li.no-gift span {
-        background: #fff;
-        line-height: 70px;
-        color: #bfa74f;
-        font-size: 12px;
-      }
+      // 1. 随机中奖结果
+      // 从1-100之间得到一个随机数，看这个随机数在中奖设置的范围，得到最终中奖的项
+      let randomRate = ~~(Math.random() * 100) // ~~ == Math.floor()
+      // 设置中奖数据的概率范围
+      let num = 0
+      this.lottery.forEach(item => {
+        item.min = num;
+        num += item.rate;
+        item.max = num;
+      })
+      // 根据随机数，得到中奖结果
+      let res = this.lottery.filter(item => {
+        return randomRate >= item.min && randomRate < item.max;
+      })[0];
+      // 这儿可以根据实际情况，可重置中奖结果
 
-      .turntable-wrap .pointer {
-        box-sizing: border-box;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        right: 0;
-        margin: -23px auto;
-        width: 46px;
-        height: 46px;
-        border-radius: 50%;
-        background: #fff;
-        border: 5px solid #fff;
-        box-shadow: 0 0 0 5px #b9a046;
-        text-align: center;
-        line-height: 16px;
-        color: #b9a046;
-        font-size: 44px;
-        font-weight: 700;
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .turntable-wrap .pointer:before {
-        content: '';
-        position: absolute;
-        top: -288px;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        width: 0;
-        border-style: solid;
-        border-color: transparent transparent #b9a046 transparent;
-        border-width: 25px 10px 255px 10px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="turntable-wrap">
-      <div class="light" id="turntable_light"></div>
-      <div class="turntable" id="turntable">
-        <ul class="bg" id="turntable_bg"></ul>
-        <ul class="gift" id="turntable_gift"></ul>
-      </div>
-      <div class="pointer disabled" id="turntable_pointer">食</div>
-    </div>
+      // 2. 计算旋转角度, 需要多转5圈，达转1圈用时1s, 到旋转的效果
+      let rotateItemDeg = (res.location - 1) * (360 / this.lottery.length); // 每个item旋转角度, 第一个不用旋转
+      let rotate = rotateItemDeg + 5 * 360;
+      let rotateSpeed = (rotateItemDeg / 360 * 1 + 5).toFixed(2);
+      // 重置转盘样式
+      this.turntable.removeAttribute('style');
+      // 保证下一次旋转动画生效
+      setTimeout(() => {
+        this.turntable.style.transform = `rotate(${rotate}deg)`;
+        this.turntable.style.transition = `transform ${rotateSpeed}s ease-out`;
+      }, 10)
 
-    <script>
-      // 单例模式，转盘唯一，用对象字面量方式表示
-      let turntable = {
-        itemNum: 38, // 转盘平均分几块
+      // 3. 动画结束，显示中奖结果，中奖结果如何显示，视实际情况而定
+      setTimeout(() => {
+        this.isGoing = false;
+        console.log('中奖结果：', randomRate, res, this.typeMap[res.type]);
+      }, rotateSpeed * 1000);
+    }
+  }
 
-        lightNum: 38, // 转盘上的灯
-        light: null, // 转盘旋转灯容器
+  let lottery = [
+    {
+      "location": 1,
+      "type": 1,
+      "rate": 30
+    },
+    {
+      "location": 2,
+      "type": 2,
+      "rate": 30
+    },
+    {
+      "location": 3,
+      "type": 3,
+      "rate": 30
+    },
+    {
+      "location": 4,
+      "type": 4,
+      "rate": 30
+    },
+    {
+      "location": 5,
+      "type": 5,
+      "rate": 30
+    },
+    {
+      "location": 6,
+      "type": 6,
+      "rate": 30
+    },
+    {
+      "location": 7,
+      "type": 7,
+      "rate": 30
+    },
+    {
+      "location": 8,
+      "type": 8,
+      "rate": 30
+    },
+    {
+      "location": 9,
+      "type": 9,
+      "rate": 30
+    },
+    {
+      "location": 10,
+      "type": 10,
+      "rate": 30
+    },
+    {
+      "location": 11,
+      "type": 11,
+      "rate": 30
+    },
+    {
+      "location": 12,
+      "type": 12,
+      "rate": 30
+    },
+    {
+      "location": 13,
+      "type": 13,
+      "rate": 30
+    },
+    {
+      "location": 14,
+      "type": 14,
+      "rate": 30
+    },
+    {
+      "location": 15,
+      "type": 15,
+      "rate": 30
+    },
+    {
+      "location": 16,
+      "type": 16,
+      "rate": 30
+    },
+    {
+      "location": 17,
+      "type": 17,
+      "rate": 30
+    },
+    {
+      "location": 18,
+      "type": 18,
+      "rate": 30
+    },
+    {
+      "location": 19,
+      "type": 19,
+      "rate": 30
+    },
+    {
+      "location": 20,
+      "type": 20,
+      "rate": 30
+    },
+    {
+      "location": 21,
+      "type": 21,
+      "rate": 30
+    },
+    {
+      "location": 22,
+      "type": 22,
+      "rate": 30
+    },
+    {
+      "location": 23,
+      "type": 23,
+      "rate": 30
+    },
+    {
+      "location": 24,
+      "type": 24,
+      "rate": 30
+    },
+    {
+      "location": 25,
+      "type": 25,
+      "rate": 30
+    },
+    {
+      "location": 26,
+      "type": 26,
+      "rate": 30
+    },
+    {
+      "location": 27,
+      "type": 27,
+      "rate": 30
+    },
+    {
+      "location": 28,
+      "type": 28,
+      "rate": 30
+    },
+    {
+      "location": 29,
+      "type": 29,
+      "rate": 30
+    },
+    {
+      "location": 30,
+      "type": 30,
+      "rate": 30
+    },
+    {
+      "location": 31,
+      "type": 31,
+      "rate": 30
+    },
+    {
+      "location": 32,
+      "type": 32,
+      "rate": 30
+    },
+    {
+      "location": 33,
+      "type": 33,
+      "rate": 30
+    },
+    {
+      "location": 34,
+      "type": 34,
+      "rate": 30
+    },
+    {
+      "location": 35,
+      "type": 35,
+      "rate": 30
+    },
+    {
+      "location": 36,
+      "type": 36,
+      "rate": 30
+    },
+    {
+      "location": 37,
+      "type": 37,
+      "rate": 30
+    },
+    {
+      "location": 38,
+      "type": 38,
+      "rate": 30
+    },
+    {
+      "location": 39,
+      "type": 39,
+      "rate": 30
+    }
+  ];
 
-        turntable: null, // 转盘
-
-        bg: null, // 转盘背景
-
-        gift: null, // 转盘上的中奖结果图
-
-        pointer: null, // 转盘指针
-
-        lottery: [], // 中奖数据
-
-        typeMap: {
-          "1": "馄饨",
-          "2": "饺子",
-          "3": "螺蛳粉",
-          "4": "泡面",
-          "5": "盖浇饭",
-          "6": "麻辣烫",
-          "7": "重庆小面",
-          "8": "炸鸡",
-          "9": "寿司",
-          "10": "粥",
-          "11": "意面",
-          "12": "面包",
-          "13": "酸辣粉",
-          "14": "花甲粉",
-          "15": "烤肉",
-          "16": "汉堡",
-          "17": "炸串",
-          "18": "咖喱饭",
-          "19": "三明治",
-          "20": "蛙蛙",
-          "21": "披萨",
-          "23": "煎饼",
-          "24": "火锅",
-          "25": "串串",
-          "26": "干锅",
-          "27": "酸菜鱼",
-          "28": "冒菜",
-          "29": "关东煮",
-          "30": "鲜芋仙",
-          "31": "车仔面",
-          "32": "千层蛋糕",
-          "33": "五谷鱼粉",
-          "34": "泡菜",
-          "35": "黄焖鸡",
-          "36": "鸡公煲",
-          "37": "冒烤鸭",
-          "38": "减肥不吃"
-        },
-        typeClassMap: {
-          "1": "",
-          "2": "",
-          "3": "",
-          "4": "",
-          "5": "",
-          "6": "",
-          "7": "",
-          "8": "",
-          "9": "",
-          "10": "",
-          "11": "",
-          "12": "",
-          "13": "",
-          "14": "",
-          "15": "",
-          "16": "",
-          "17": "",
-          "18": "",
-          "19": "",
-          "20": "",
-          "21": "",
-          "23": "",
-          "24": "",
-          "25": "",
-          "26": "",
-          "27": "",
-          "28": "",
-          "29": "",
-          "30": "",
-          "31": "",
-          "32": "",
-          "33": "",
-          "34": "",
-          "35": "",
-          "36": "",
-          "37": "",
-          "38": ""
-        },
-
-        isGoing: false, // 游戏是否开始
-
-        init () {
-          if (!this.lottery.length) {
-            this.pointer.style.display = 'none';
-            throw new Error('请设置中奖结果数据');
-          }
-
-          // 初始化灯
-          let lightFragment = document.createDocumentFragment();
-          for (let i = 0; i < this.lightNum; i++) {
-            let lightItem = document.createElement('span');
-            let deg = (360 / this.lightNum) * i
-            lightItem.style.transform = `rotate(${deg}deg)`;
-            lightFragment.appendChild(lightItem);
-          }
-          this.light.appendChild(lightFragment);
-
-          // 初始化转盘背景、转盘上的中奖图（用不同背景色代替）
-          let bgFragment = document.createDocumentFragment();
-          let bgItemWidth = this.bg.offsetWidth / this.num;
-          let giftFragment = document.createDocumentFragment();
-          for (let i = 0; i < this.itemNum; i++) {
-            let bgItem = document.createElement('li');
-            let deg = (360 / this.itemNum) * i
-            bgItem.style.transform = `rotate(${deg}deg)`;
-            bgFragment.appendChild(bgItem);
-
-            let giftItem = document.createElement('li');
-            giftItem.style.transform = `rotate(${deg}deg)`;
-            giftItem.className = this.typeClassMap[this.lottery[i].type];
-            let span = document.createElement('span');
-            span.innerHTML = this.typeMap[this.lottery[i].type];
-            giftItem.appendChild(span);
-            giftFragment.appendChild(giftItem)
-          }
-          this.bg.appendChild(bgFragment);
-          this.gift.appendChild(giftFragment);
-
-          // 给点击抽奖按钮添加点击事件
-          this.pointer.onclick = this.gameStart.bind(this)
-        },
-
-        gameStart () {
-          if (this.isGoing) {
-            return
-          }
-          this.isGoing = true;
-
-          // 1. 随机中奖结果
-          // 从1-100之间得到一个随机数，看这个随机数在中奖设置的范围，得到最终中奖的项
-          let randomRate = ~~(Math.random() * 100) // ~~ == Math.floor()
-          // 设置中奖数据的概率范围
-          let num = 0
-          this.lottery.forEach(item => {
-            item.min = num;
-            num += item.rate;
-            item.max = num;
-          })
-          // 根据随机数，得到中奖结果
-          let res = this.lottery.filter(item => {
-            return randomRate >= item.min && randomRate < item.max;
-          })[0];
-          // 这儿可以根据实际情况，可重置中奖结果
-
-          // 2. 计算旋转角度, 需要多转5圈，达转1圈用时1s, 到旋转的效果
-          let rotateItemDeg = (res.location - 1) * (360 / this.lottery.length); // 每个item旋转角度, 第一个不用旋转
-          let rotate = rotateItemDeg + 5 * 360;
-          let rotateSpeed = (rotateItemDeg / 360 * 1 + 5).toFixed(2);
-          // 重置转盘样式
-          this.turntable.removeAttribute('style');
-          // 保证下一次旋转动画生效
-          setTimeout(() => {
-            this.turntable.style.transform = `rotate(${rotate}deg)`;
-            this.turntable.style.transition = `transform ${rotateSpeed}s ease-out`;
-          }, 10)
-
-          // 3. 动画结束，显示中奖结果，中奖结果如何显示，视实际情况而定
-          setTimeout(() => {
-            this.isGoing = false;
-            console.log('中奖结果：', randomRate, res, this.typeMap[res.type]);
-          }, rotateSpeed * 1000);
-        }
-      }
-
-      let lottery = [
-        {
-          "location": 1,
-          "type": 1,
-          "rate": 30
-        },
-        {
-          "location": 2,
-          "type": 2,
-          "rate": 30
-        },
-        {
-          "location": 3,
-          "type": 3,
-          "rate": 30
-        },
-        {
-          "location": 4,
-          "type": 4,
-          "rate": 30
-        },
-        {
-          "location": 5,
-          "type": 5,
-          "rate": 30
-        },
-        {
-          "location": 6,
-          "type": 6,
-          "rate": 30
-        },
-        {
-          "location": 7,
-          "type": 7,
-          "rate": 30
-        },
-        {
-          "location": 8,
-          "type": 8,
-          "rate": 30
-        },
-        {
-          "location": 9,
-          "type": 9,
-          "rate": 30
-        },
-        {
-          "location": 10,
-          "type": 10,
-          "rate": 30
-        },
-        {
-          "location": 11,
-          "type": 11,
-          "rate": 30
-        },
-        {
-          "location": 12,
-          "type": 12,
-          "rate": 30
-        },
-        {
-          "location": 13,
-          "type": 13,
-          "rate": 30
-        },
-        {
-          "location": 14,
-          "type": 14,
-          "rate": 30
-        },
-        {
-          "location": 15,
-          "type": 15,
-          "rate": 30
-        },
-        {
-          "location": 16,
-          "type": 16,
-          "rate": 30
-        },
-        {
-          "location": 17,
-          "type": 17,
-          "rate": 30
-        },
-        {
-          "location": 18,
-          "type": 18,
-          "rate": 30
-        },
-        {
-          "location": 19,
-          "type": 19,
-          "rate": 30
-        },
-        {
-          "location": 20,
-          "type": 20,
-          "rate": 30
-        },
-        {
-          "location": 21,
-          "type": 21,
-          "rate": 30
-        },
-        {
-          "location": 22,
-          "type": 22,
-          "rate": 30
-        },
-        {
-          "location": 23,
-          "type": 23,
-          "rate": 30
-        },
-        {
-          "location": 24,
-          "type": 24,
-          "rate": 30
-        },
-        {
-          "location": 25,
-          "type": 25,
-          "rate": 30
-        },
-        {
-          "location": 26,
-          "type": 26,
-          "rate": 30
-        },
-        {
-          "location": 27,
-          "type": 27,
-          "rate": 30
-        },
-        {
-          "location": 28,
-          "type": 28,
-          "rate": 30
-        },
-        {
-          "location": 29,
-          "type": 29,
-          "rate": 30
-        },
-        {
-          "location": 30,
-          "type": 30,
-          "rate": 30
-        },
-        {
-          "location": 31,
-          "type": 31,
-          "rate": 30
-        },
-        {
-          "location": 32,
-          "type": 32,
-          "rate": 30
-        },
-        {
-          "location": 33,
-          "type": 33,
-          "rate": 30
-        },
-        {
-          "location": 34,
-          "type": 34,
-          "rate": 30
-        },
-        {
-          "location": 35,
-          "type": 35,
-          "rate": 30
-        },
-        {
-          "location": 36,
-          "type": 36,
-          "rate": 30
-        },
-        {
-          "location": 37,
-          "type": 37,
-          "rate": 30
-        },
-        {
-          "location": 38,
-          "type": 38,
-          "rate": 30
-        },
-        {
-          "location": 39,
-          "type": 39,
-          "rate": 30
-        }
-      ];
-
-      turntable.turntable = document.querySelector('#turntable');
-      turntable.light = document.querySelector('#turntable_light');
-      turntable.bg = document.querySelector('#turntable_bg');
-      turntable.gift = document.querySelector('#turntable_gift');
-      turntable.pointer = document.querySelector('#turntable_pointer');
-      turntable.lottery = lottery;
-      turntable.init();
-    </script>
-  </body>
+  turntable.turntable = document.querySelector('#turntable');
+  turntable.light = document.querySelector('#turntable_light');
+  turntable.bg = document.querySelector('#turntable_bg');
+  turntable.gift = document.querySelector('#turntable_gift');
+  turntable.pointer = document.querySelector('#turntable_pointer');
+  turntable.lottery = lottery;
+  turntable.init();
+</script>
+</body>
 </html>
